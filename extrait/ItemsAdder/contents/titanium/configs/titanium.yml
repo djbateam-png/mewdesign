@@ -1,0 +1,292 @@
+####################################################################
+# CONFIG ITEMSADDER — SET "TITANIUM" (syntaxe moderne 4.0.13+)
+# À placer dans : plugins/ItemsAdder/contents/Titanium/configs/titanium.yml
+#
+# STRUCTURE DE FICHIERS ATTENDUE (rien dans un dossier "resource_pack") :
+# plugins/ItemsAdder/contents/Titanium/configs/titanium.yml   <- ce fichier
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_sword.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_pickaxe.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_axe.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_shovel.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_hoe.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_hammer.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_shield.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_helmet.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_chestplate.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_leggings.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_boots.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_raw.png
+# plugins/ItemsAdder/contents/Titanium/textures/item/titanium_green_ingot.png
+# plugins/ItemsAdder/contents/Titanium/textures/block/titanium_green_ore.png
+# plugins/ItemsAdder/contents/Titanium/textures/block/titanium_green_block.png
+# plugins/ItemsAdder/contents/Titanium/textures/armor/titanium_green/layer_1.png
+# plugins/ItemsAdder/contents/Titanium/textures/armor/titanium_green/layer_2.png
+####################################################################
+
+info:
+  namespace: titanium
+
+# ===================== COUCHES D'ARMURE PORTÉE =====================
+equipments:
+  titanium_green:
+    type: armor
+    layer_1: armor/titanium_green/layer_1
+    layer_2: armor/titanium_green/layer_2
+
+items:
+
+  # ===================== RESSOURCES BRUTES =====================
+
+  titanium_ore:
+    name: "&aMinerai de Titanium"
+    material: PAPER
+    graphics:
+      texture: block/titanium_green_ore
+    behaviours:
+      block:
+        drop_when_mined: false
+        placed_model:
+          type: REAL_NOTE
+          break_particles: ITEM
+    loots:
+      blocks:
+        titanium_ore_loot:
+          type: titanium:titanium_ore
+          items:
+            drop1:
+              item: titanium:titanium_raw
+              min_amount: 1
+              max_amount: 2
+              chance: 100
+
+  titanium_block:
+    name: "&aBloc de Titanium"
+    material: PAPER
+    graphics:
+      texture: block/titanium_green_block
+    behaviours:
+      block:
+        placed_model:
+          type: REAL_NOTE
+          break_particles: ITEM
+
+  titanium_raw:
+    name: "&aMorceau de Titanium Brut"
+    material: PAPER
+    graphics:
+      texture: item/titanium_green_raw
+
+  titanium_ingot:
+    name: "&aLingot de Titanium"
+    material: PAPER
+    graphics:
+      texture: item/titanium_green_ingot
+    recipes:
+      - type: FURNACE
+        result_amount: 1
+        ingredients:
+          - titanium:titanium_raw
+        experience: 1.0
+        cookingtime: 200
+
+  # ===================== ÉPÉE =====================
+
+  titanium_sword:
+    name: "&a&lÉpée de Titanium"
+    material: DIAMOND_SWORD
+    graphics:
+      texture: item/titanium_green_sword
+    durability:
+      max_durability: 3500
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - " I "
+          - " I "
+          - " S "
+        ingredients:
+          I: titanium:titanium_ingot
+          S: minecraft:stick
+
+  # ===================== OUTILS =====================
+
+  titanium_pickaxe:
+    name: "&a&lPioche de Titanium"
+    material: DIAMOND_PICKAXE
+    graphics:
+      texture: item/titanium_green_pickaxe
+    durability:
+      max_durability: 3500
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "III"
+          - " S "
+          - " S "
+        ingredients:
+          I: titanium:titanium_ingot
+          S: minecraft:stick
+
+  titanium_axe:
+    name: "&a&lHache de Titanium"
+    material: DIAMOND_AXE
+    graphics:
+      texture: item/titanium_green_axe
+    durability:
+      max_durability: 3500
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "II "
+          - "IS "
+          - " S "
+        ingredients:
+          I: titanium:titanium_ingot
+          S: minecraft:stick
+
+  titanium_shovel:
+    name: "&a&lPelle de Titanium"
+    material: DIAMOND_SHOVEL
+    graphics:
+      texture: item/titanium_green_shovel
+    durability:
+      max_durability: 3500
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "I"
+          - "S"
+          - "S"
+        ingredients:
+          I: titanium:titanium_ingot
+          S: minecraft:stick
+
+  titanium_hoe:
+    name: "&a&lHoue de Titanium"
+    material: DIAMOND_HOE
+    graphics:
+      texture: item/titanium_green_hoe
+    durability:
+      max_durability: 3500
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "II"
+          - " S"
+          - " S"
+        ingredients:
+          I: titanium:titanium_ingot
+          S: minecraft:stick
+
+  titanium_hammer:
+    name: "&a&lMarteau de Titanium"
+    material: DIAMOND_AXE
+    graphics:
+      texture: item/titanium_green_hammer
+    durability:
+      max_durability: 3500
+
+  titanium_shield:
+    name: "&a&lBouclier de Titanium"
+    material: SHIELD
+    graphics:
+      texture: item/titanium_green_shield
+    durability:
+      max_durability: 900
+
+  # ===================== ARMURE =====================
+
+  titanium_helmet:
+    name: "&a&lCasque de Titanium"
+    material: DIAMOND_HELMET
+    graphics:
+      texture: item/titanium_green_helmet
+    durability:
+      max_durability: 900
+    equipment:
+      id: titanium:titanium_green
+      slot_attribute_modifiers:
+        armor: 4.0
+        armor_toughness: 4.5
+        knockback_resistance: 0.2
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "III"
+          - "I I"
+        ingredients:
+          I: titanium:titanium_ingot
+
+  titanium_chestplate:
+    name: "&a&lPlastron de Titanium"
+    material: DIAMOND_CHESTPLATE
+    graphics:
+      texture: item/titanium_green_chestplate
+    durability:
+      max_durability: 900
+    equipment:
+      id: titanium:titanium_green
+      slot_attribute_modifiers:
+        armor: 9.0
+        armor_toughness: 4.5
+        knockback_resistance: 0.2
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "I I"
+          - "III"
+          - "III"
+        ingredients:
+          I: titanium:titanium_ingot
+
+  titanium_leggings:
+    name: "&a&lJambières de Titanium"
+    material: DIAMOND_LEGGINGS
+    graphics:
+      texture: item/titanium_green_leggings
+    durability:
+      max_durability: 900
+    equipment:
+      id: titanium:titanium_green
+      slot_attribute_modifiers:
+        armor: 7.0
+        armor_toughness: 4.5
+        knockback_resistance: 0.2
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "III"
+          - "I I"
+          - "I I"
+        ingredients:
+          I: titanium:titanium_ingot
+
+  titanium_boots:
+    name: "&a&lBottes de Titanium"
+    material: DIAMOND_BOOTS
+    graphics:
+      texture: item/titanium_green_boots
+    durability:
+      max_durability: 900
+    equipment:
+      id: titanium:titanium_green
+      slot_attribute_modifiers:
+        armor: 4.0
+        armor_toughness: 4.5
+        knockback_resistance: 0.2
+    recipes:
+      - type: SHAPED
+        result_amount: 1
+        shape:
+          - "I I"
+          - "I I"
+        ingredients:
+          I: titanium:titanium_ingot
